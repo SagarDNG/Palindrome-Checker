@@ -1,22 +1,25 @@
-function palindrome(myString) {
+const input = document.getElementById('input');
+const button = document.getElementById('button');
+const span = document.getElementById('span');
 
-    /* remove special characters, spaces and make lowercase*/
-    var removeChar = myString.replace(/[^A-Z0-9]/ig, "").toLowerCase();
+button.addEventListener('click', palindrome);
 
-    /* reverse removeChar for comparison*/
-    var checkPalindrome = removeChar.split('').reverse().join('');
-
-    /* Check to see if myString is a Palindrome*/
-    if (removeChar === checkPalindrome) {
-
-        document.write("<div>" + myString + " is a Palindrome <div>");
+function palindrome() {
+    if (!input.value) {
+        alert('Please Enter Something')
     } else {
+        /* it removes special characters, spaces and make lowercase*/
+        let removeChar = input.value.replace(/[^A-Z0-9]/ig, "").toLowerCase();
 
-        document.write("<div>" + myString + " is not a Palindrome </div>");
+        /* it reverses removeChar for comparison*/
+        let checkPalindrome = removeChar.split('').reverse().join('');
+
+        /* it Checks to see if input.value (USer Input) is a Palindrome or not*/
+        if (removeChar === checkPalindrome) {
+            span.innerText = `Yes, ${input.value} is a Palindrome`;
+        } else {
+            span.innerText = `No, ${input.value} is not a Palindrome`;
+        }
     }
+    input.value = '';
 }
-palindrome('"Oh who was it I saw, oh who?"')
-palindrome('"Madam"')
-palindrome('"Star Wars"')
-palindrome('"2,3,4,3,2"')
-palindrome('"7,10,7,8,9"')

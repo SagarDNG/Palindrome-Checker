@@ -1,0 +1,22 @@
+body {
+    margin: 10em auto;
+    text-align: center;
+}
+
+#button {
+    margin: 1em;
+    padding: .2em .4em;
+}
+
+#button:hover {
+    color: white;
+    background-color: black;
+}
+
+#span {
+    display: block;
+}
+
+footer {
+    margin-top: 10em;
+}
